@@ -22,12 +22,12 @@
           <h1>Hot Restaurant</h1>
           <h3>Make Your Reservation</h3>
           <hr />
-          <a href="/add">
+          <a href="/tables.html">
             <button class="btn btn-danger btn-lg">
               <span class="fa fa-plus"></span> View Tables
             </button>
           </a>
-          <a href="/api/characters">
+          <a href="/home.html">
             <button class="btn btn-danger btn-lg">
               <span class="fa fa-eye"></span> Home
             </button>
@@ -67,7 +67,41 @@
   <div id="left"></div>
   <div id="right"></div>
 
-
+  <script type="text/javascript">
+  
+    $("#submit").click(function() {
+        event.preventDefault();
+  
+        var newReservation = {
+          customerName: $("#name").val().trim(),
+          phoneNumber: $("#number").val().trim(),
+          customerEmail: $("#email").val().trim(),
+          customerID: $("#id").val().trim()
+        }
+  
+        console.log(newReservation);
+  
+         var currentURL = window.location.origin;
+  
+         $.post(currentURL + "/tables.html", newReservation, function(data) {
+  
+            if (data == true) {
+              alert("Yay! You are officially booked!");
+            }
+  
+            if (data == false) {
+              alert("Sorry you are on the wait list.");
+            }
+  
+            $("#name").val("");
+            $("#number").val("");
+            $("#email").val("");
+            $("#id").val("");
+         });
+  
+         return false;
+    });
+  
 </script>
 </body>
 </html>
