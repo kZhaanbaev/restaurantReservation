@@ -34,16 +34,17 @@ let waitList = [
 
 //------------------ ROUTES ----------------------------
 
-app.get('/', (req, res) => res.send('Homepage will open here'))
-app.get('/', (req, res) => res.send('Homepage will open here'))
-app.get('/', (req, res) => res.send('Homepage will open here'))
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')))
+app.get('/home', (req, res) => res.sendFile(path.join(__dirname, 'home.html')))
+app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'reserve.html')))
+app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')))
 
-app.get('/tables', (req, res) => {
-    const pathParam = req.params.revervationlist;
-    res.send([reservationsList, waitList]);
+// app.get('/tables', (req, res) => {
+//     const pathParam = req.params.revervationlist;
+//     res.send([reservationsList, waitList]);
 
-    // return res.json(reservationsList);
-})
+//     // return res.json(reservationsList);
+// })
 
 //Links to API data
 app.get('/api/tables', (req, res) => res.json(reservationsList));
