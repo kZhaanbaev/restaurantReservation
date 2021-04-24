@@ -20,6 +20,12 @@ let reservationsList = [
         phoneNumber: "555-555-5555",
         customerEmail: "hulk@mail.com",
         customerID: 02
+    },
+    {
+        customerName: "Charlie",
+        phoneNumber: "555-555-5555",
+        customerEmail: "hulk@mail.com",
+        customerID: 03
     }
 ];
 
